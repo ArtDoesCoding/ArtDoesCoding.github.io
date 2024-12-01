@@ -1,7 +1,6 @@
 // src/components/Experience.js
 import React from 'react';
 import { BriefcaseIcon } from '@heroicons/react/24/outline';
-//test
 function Experience() {
     const experiences = [
         {
