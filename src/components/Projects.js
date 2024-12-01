@@ -22,7 +22,7 @@ function Projects() {
         },
         {
             name: 'This Site!',
-            duration: 'November 2024',
+            duration: 'Completed: November 2024',
             description:
                 'A personal portfolio website built with React, Tailwind CSS, and hosted on GitHub Pages to showcase my projects and skills.',
             technologies: ['React', 'Tailwind CSS', 'GitHub Pages'],
