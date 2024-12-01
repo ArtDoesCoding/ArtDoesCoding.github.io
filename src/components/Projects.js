@@ -19,6 +19,14 @@ function Projects() {
                 'A REST API built with Flask to manage a to-do list application, utilizing SQLAlchemy for database interactions.',
             technologies: ['Flask', 'SQLAlchemy', 'Python'],
             link: 'https://github.com/ArtDoesCoding/Todo_Rest_API_Starter_Project',
+        },
+        {
+            name: 'This Site!',
+            duration: 'November 2024',
+            description:
+                'A personal portfolio website built with React, Tailwind CSS, and hosted on GitHub Pages to showcase my projects and skills.',
+            technologies: ['React', 'Tailwind CSS', 'GitHub Pages'],
+            link: 'https://github.com/ArtDoesCoding/ArtDoesCoding.github.io',
         }
     ];
 
