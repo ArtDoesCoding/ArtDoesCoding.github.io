@@ -19,16 +19,15 @@ function Skills() {
             icon: <ServerStackIcon className="h-8 w-8 text-blue-600 mx-auto mb-2" />,
             items: ['SQLite', 'MySQL', 'MariaDB'],
         },
-        // Add more categories as needed
     ];
 
     return (
         <section id="skills" className="bg-white py-12">
             <div className="container mx-auto px-6">
                 <h2 className="text-3xl font-bold mb-6 text-gray-800 text-center">Skills</h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     {skills.map((skill) => (
-                        <div key={skill.category} className="text-center">
+                        <div key={skill.category} className="text-center bg-white shadow-md border border-gray-200 p-4 rounded-lg">
                             {skill.icon}
                             <h3 className="font-semibold mb-2 text-gray-800">{skill.category}</h3>
                             <ul className="list-none text-gray-700">

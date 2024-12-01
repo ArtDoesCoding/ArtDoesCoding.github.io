@@ -12,10 +12,10 @@ function Footer() {
                         href="https://github.com/ArtDoesCoding"
                         target="_blank"
                         rel="noopener noreferrer"
+                        className="hover:text-gray-400"
                     >
                         <FaGithub className="h-6 w-6" />
                     </a>
-                    {/* Add other social media icons if desired */}
                 </div>
             </div>
         </footer>
