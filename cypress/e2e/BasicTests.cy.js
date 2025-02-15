@@ -1,6 +1,6 @@
 describe('Portfolio Website', () => {
     beforeEach(() => {
-        cy.visit('http://localhost:3000/');
+        cy.visit('/');
     });
 
     it('should display the header with the correct title', () => {
