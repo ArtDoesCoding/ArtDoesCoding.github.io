@@ -16,12 +16,12 @@ describe('Portfolio Website', () => {
         });
     });
 
-    it('should display all main sections', () => {
-        cy.get('#summary').should('be.visible');
-        cy.get('#education').should('be.visible');
-        cy.get('#skills').should('be.visible');
-        cy.get('#experience').should('be.visible');
-        cy.get('#projects').should('be.visible');
+    it('should display all main sections after scrolling', () => {
+        cy.get('#summary').scrollIntoView().should('be.visible');
+        cy.get('#education').scrollIntoView().should('be.visible');
+        cy.get('#skills').scrollIntoView().should('be.visible');
+        cy.get('#experience').scrollIntoView().should('be.visible');
+        cy.get('#projects').scrollIntoView().should('be.visible');
     });
 
     it('should have a working "Contact Me" button', () => {
@@ -32,7 +32,7 @@ describe('Portfolio Website', () => {
 
     it('should open the mobile menu on small screens', () => {
         cy.viewport('iphone-6');
-        cy.get('nav button[aria-label="Open menu"]').click();
+        cy.get('nav button[aria-label="Toggle menu"]').click();
         cy.get('nav').contains('Summary').should('be.visible');
     });
 });
