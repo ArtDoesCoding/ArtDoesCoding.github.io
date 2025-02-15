@@ -1,6 +1,6 @@
 describe('Portfolio Website', () => {
     beforeEach(() => {
-        cy.visit('/');
+        cy.visit('http://localhost:3000/');
     });
 
     it('should display the header with the correct title', () => {
@@ -17,11 +17,11 @@ describe('Portfolio Website', () => {
     });
 
     it('should display all main sections after scrolling', () => {
-        cy.get('#summary').scrollIntoView().should('be.visible');
-        cy.get('#education').scrollIntoView().should('be.visible');
-        cy.get('#skills').scrollIntoView().should('be.visible');
-        cy.get('#experience').scrollIntoView().should('be.visible');
-        cy.get('#projects').scrollIntoView().should('be.visible');
+        cy.get('#summary').scrollIntoView().wait(325).should('be.visible');
+        cy.get('#education').scrollIntoView().wait(325).should('be.visible');
+        cy.get('#skills').scrollIntoView().wait(325).should('be.visible');
+        cy.get('#experience').scrollIntoView().wait(325).should('be.visible');
+        cy.get('#projects').scrollIntoView().wait(325).should('be.visible');
     });
 
     it('should have a working "Contact Me" button', () => {
@@ -33,6 +33,10 @@ describe('Portfolio Website', () => {
     it('should open the mobile menu on small screens', () => {
         cy.viewport('iphone-6');
         cy.get('nav button[aria-label="Toggle menu"]').click();
-        cy.get('nav').contains('Summary').should('be.visible');
+        cy.get('nav')
+            .find('div[class*="md:hidden"]')
+            .should('be.visible')
+            .and('contain', 'Summary');
+
     });
 });
