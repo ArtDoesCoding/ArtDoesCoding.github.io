@@ -1,14 +1,36 @@
-/* src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-    --navbar-height: 64px; /* Adjust this to match your navbar's height */
+@layer base {
+    :root {
+        --navbar-height: 80px;
+    }
+
+    html {
+        @apply scroll-smooth;
+        scroll-padding-top: var(--navbar-height);
+    }
+
+    body {
+        @apply bg-gradient-to-br from-gray-50 to-gray-100 antialiased;
+    }
+}
+
+@layer utilities {
+    .section-spacing {
+        @apply py-20 lg:py-28;
+    }
+
+    .animate-card-hover {
+        @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-xl;
+    }
+
+    .gradient-text {
+        @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+    }
 }
 
 html {
-    scroll-padding-top: var(--navbar-height);
     scroll-behavior: smooth;
-    font-family: 'Inter', sans-serif;
 }

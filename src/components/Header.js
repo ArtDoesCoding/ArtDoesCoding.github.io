@@ -1,35 +1,42 @@
-// src/components/Header.js
 import React from 'react';
 import { EnvelopeIcon } from '@heroicons/react/24/outline';
 import { FaGithub } from 'react-icons/fa';
 
-function Header() {
-    return (
-        <header id="top" className="bg-gradient-to-r from-blue-500 to-purple-600 text-white">
-            <div className="container mx-auto flex flex-col items-center justify-center py-20 px-6">
-                <h1 className="text-6xl font-extrabold mb-4">Calvert Fitzgerald</h1>
-                <p className="text-2xl mb-6">Software Engineer | Full Stack Developer</p>
-                <div className="flex space-x-4">
+const Header = () => (
+    <header id="top" className="pt-32 pb-24">
+        <div className="container mx-auto px-6">
+            <div className="max-w-4xl mx-auto text-center">
+                <h1 className="text-5xl md:text-6xl font-bold mb-6 gradient-text">
+                    Calvert Fitzgerald
+                </h1>
+                <p className="text-xl md:text-2xl text-gray-600 mb-8">
+                    Building Digital Experiences with Precision & Passion
+                </p>
+                <div className="flex flex-col sm:flex-row justify-center gap-4">
                     <a
                         href="mailto:calvertf@acm.org"
-                        className="bg-white text-blue-600 px-6 py-3 rounded-lg hover:bg-gray-200 flex items-center transition duration-200"
+                        className="bg-blue-600 text-white px-8 py-4 rounded-xl hover:bg-blue-700 flex items-center justify-center gap-2"
+                        aria-label="Contact Me"
                     >
-                        <EnvelopeIcon className="h-5 w-5 mr-2"/>
-                        calvertf@acm.org
+                        <EnvelopeIcon className="h-5 w-5" />
+                        Contact Me
                     </a>
                     <a
                         href="https://github.com/ArtDoesCoding"
-                        className="bg-white text-blue-600 px-6 py-3 rounded-lg hover:bg-gray-200 flex items-center transition duration-200"
+                        className="bg-gray-800 text-white px-8 py-4 rounded-xl hover:bg-gray-900 flex items-center justify-center gap-2"
                         target="_blank"
                         rel="noopener noreferrer"
+                        aria-label="Visit my GitHub profile"
                     >
-                        <FaGithub className="h-5 w-5 mr-2"/>
-                        GitHub
+                        <FaGithub className="h-5 w-5" />
+                        GitHub Profile
                     </a>
                 </div>
             </div>
-        </header>
-    );
-}
+        </div>
+    </header>
+);
+
+Header.propTypes = {};
 
 export default Header;

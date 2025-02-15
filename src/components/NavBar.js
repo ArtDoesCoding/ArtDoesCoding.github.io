@@ -4,127 +4,82 @@ import {
     AcademicCapIcon,
     BriefcaseIcon,
     CodeBracketIcon,
+    Bars3Icon,
+    XMarkIcon
 } from '@heroicons/react/24/outline';
 
-function NavBar() {
+const navItems = [
+    { id: 'summary', icon: UserIcon, text: 'Summary' },
+    { id: 'education', icon: AcademicCapIcon, text: 'Education' },
+    { id: 'skills', icon: CodeBracketIcon, text: 'Skills' },
+    { id: 'experience', icon: BriefcaseIcon, text: 'Experience' },
+    { id: 'projects', icon: CodeBracketIcon, text: 'Projects' }
+];
+
+const NavBar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
-
     return (
-        <nav className="bg-white shadow sticky top-0 z-50">
-            <div className="container mx-auto flex justify-between items-center py-4 px-6">
-                <div className="text-2xl font-bold">
-                    <a href="#top">CF</a>
+        <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 shadow-sm">
+            <div className="container mx-auto px-6">
+                <div className="flex justify-between items-center h-16">
+                    <a
+                        href="#top"
+                        className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+                    >
+                        CF
+                    </a>
+                    {/* Desktop Menu */}
+                    <ul className="hidden md:flex space-x-8">
+                        {navItems.map((item) => (
+                            <li key={item.id}>
+                                <a
+                                    href={`#${item.id}`}
+                                    className="flex items-center text-gray-600 hover:text-blue-600 gap-2 transition-colors group"
+                                >
+                                    <item.icon className="h-5 w-5 group-hover:scale-110 transition-transform" />
+                                    <span className="font-medium">{item.text}</span>
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                    {/* Mobile Menu Toggle */}
+                    <button
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        className="md:hidden p-2 text-gray-600 hover:text-blue-600"
+                        aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+                    >
+                        {isMenuOpen ? (
+                            <XMarkIcon className="h-6 w-6" />
+                        ) : (
+                            <Bars3Icon className="h-6 w-6" />
+                        )}
+                    </button>
                 </div>
-
-                {/* Desktop Menu */}
-                <ul className="hidden md:flex space-x-6">
-                    <li>
-                        <a href="#summary" className="flex items-center text-gray-600 hover:text-blue-600 transition">
-                            <UserIcon className="h-5 w-5 mr-1" />
-                            Summary
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#education" className="flex items-center text-gray-600 hover:text-blue-600 transition">
-                            <AcademicCapIcon className="h-5 w-5 mr-1" />
-                            Education
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#skills" className="flex items-center text-gray-600 hover:text-blue-600 transition">
-                            <CodeBracketIcon className="h-5 w-5 mr-1" />
-                            Skills
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#experience" className="flex items-center text-gray-600 hover:text-blue-600 transition">
-                            <BriefcaseIcon className="h-5 w-5 mr-1" />
-                            Experience
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#projects" className="flex items-center text-gray-600 hover:text-blue-600 transition">
-                            <CodeBracketIcon className="h-5 w-5 mr-1" />
-                            Projects
-                        </a>
-                    </li>
-                </ul>
-
-                {/* Hamburger Menu Button */}
-                <button
-                    className="md:hidden text-gray-600"
-                    onClick={toggleMenu}
-                    aria-label="Toggle menu"
-                >
-                    ☰
-                </button>
-            </div>
-
-            {/* Mobile Menu */}
-            <div
-                className={`${
-                    isMenuOpen ? 'block' : 'hidden'
-                } md:hidden bg-white shadow-lg border-t border-gray-200`}
-            >
-                <ul className="space-y-4 py-4 px-6">
-                    <li>
-                        <a
-                            href="#summary"
-                            className="flex items-center text-gray-600 hover:text-blue-600 transition"
-                            onClick={() => setIsMenuOpen(false)} // Close menu on click
-                        >
-                            <UserIcon className="h-5 w-5 mr-1" />
-                            Summary
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="#education"
-                            className="flex items-center text-gray-600 hover:text-blue-600 transition"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            <AcademicCapIcon className="h-5 w-5 mr-1" />
-                            Education
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="#skills"
-                            className="flex items-center text-gray-600 hover:text-blue-600 transition"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            <CodeBracketIcon className="h-5 w-5 mr-1" />
-                            Skills
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="#experience"
-                            className="flex items-center text-gray-600 hover:text-blue-600 transition"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            <BriefcaseIcon className="h-5 w-5 mr-1" />
-                            Experience
-                        </a>
-                    </li>
-                    <li>
-                        <a
-                            href="#projects"
-                            className="flex items-center text-gray-600 hover:text-blue-600 transition"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            <CodeBracketIcon className="h-5 w-5 mr-1" />
-                            Projects
-                        </a>
-                    </li>
-                </ul>
+                {/* Mobile Menu */}
+                {isMenuOpen && (
+                    <div className="md:hidden py-4 border-t border-gray-100">
+                        <ul className="space-y-4">
+                            {navItems.map((item) => (
+                                <li key={item.id}>
+                                    <a
+                                        href={`#${item.id}`}
+                                        className="flex items-center text-gray-600 hover:text-blue-600 gap-3 px-4 py-2 rounded-lg hover:bg-gray-50 transition-colors"
+                                        onClick={() => setIsMenuOpen(false)}
+                                    >
+                                        <item.icon className="h-5 w-5" />
+                                        <span>{item.text}</span>
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
             </div>
         </nav>
     );
-}
+};
+
+NavBar.propTypes = {};
 
 export default NavBar;

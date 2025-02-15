@@ -1,25 +1,29 @@
-// src/components/Footer.js
 import React from 'react';
 import { FaGithub } from 'react-icons/fa';
 
-function Footer() {
-    return (
-        <footer className="bg-gray-900 text-white py-6">
-            <div className="container mx-auto text-center">
-                <p>&copy; {new Date().getFullYear()} Calvert Fitzgerald</p>
-                <div className="flex justify-center space-x-4 mt-4">
+const Footer = () => (
+    <footer className="bg-gray-900 text-white py-12" role="contentinfo">
+        <div className="container mx-auto px-6">
+            <div className="max-w-4xl mx-auto text-center">
+                <p className="text-gray-400 mb-4">
+                    © {new Date().getFullYear()} Calvert Fitzgerald. All rights reserved.
+                </p>
+                <div className="flex justify-center space-x-6">
                     <a
                         href="https://github.com/ArtDoesCoding"
+                        className="text-gray-400 hover:text-white transition-colors"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-gray-400"
+                        aria-label="Visit my GitHub profile"
                     >
                         <FaGithub className="h-6 w-6" />
                     </a>
                 </div>
             </div>
-        </footer>
-    );
-}
+        </div>
+    </footer>
+);
+
+Footer.propTypes = {};
 
 export default Footer;
