@@ -2,7 +2,7 @@ import React from 'react';
 import { FaGithub } from 'react-icons/fa';
 
 const Footer = () => (
-    <footer className="bg-gray-900 text-white py-12" role="contentinfo">
+    <footer className="bg-gray-900 text-white py-12" data-aos="fade-in">
         <div className="container mx-auto px-6">
             <div className="max-w-4xl mx-auto text-center">
                 <p className="text-gray-400 mb-4">
@@ -23,7 +23,5 @@ const Footer = () => (
         </div>
     </footer>
 );
-
-Footer.propTypes = {};
 
 export default Footer;

@@ -9,8 +9,8 @@ const experiences = [
         responsibilities: [
             'Developed e-commerce and learning management functionalities',
             'Integrated systems and tools to improve user experience',
-            'Documented processes for maintainability'
-        ]
+            'Documented processes for maintainability',
+        ],
     },
     {
         title: 'IT Intern',
@@ -19,15 +19,15 @@ const experiences = [
         responsibilities: [
             'Assisted in IT support tasks and troubleshooting',
             'Provided technical support and resolved end-user issues',
-            'Collaborated with team members on daily operations'
-        ]
-    }
+            'Collaborated with team members on daily operations',
+        ],
+    },
 ];
 
 const Experience = () => (
-    <section id="experience" className="bg-gradient-to-br from-gray-50 to-gray-100 antialiased">
-        <div className="container mx-auto px-6 py-16">
-            <h2 className="text-4xl font-bold mb-8 text-center bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+    <section id="experience" className="py-20 bg-gray-50 scroll-mt-24" data-aos="fade-up">
+        <div className="container mx-auto px-6">
+            <h2 className="text-4xl font-bold mb-8 text-center text-indigo-600">
                 Professional Experience
             </h2>
             <div className="max-w-4xl mx-auto space-y-8">
@@ -37,8 +37,8 @@ const Experience = () => (
                         className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300"
                     >
                         <div className="flex items-center gap-4 mb-4">
-                            <div className="p-2 bg-blue-50 rounded-lg">
-                                <BriefcaseIcon className="h-6 w-6 text-blue-600" />
+                            <div className="p-2 bg-indigo-50 rounded-lg">
+                                <BriefcaseIcon className="h-6 w-6 text-indigo-600" />
                             </div>
                             <div>
                                 <h3 className="text-xl font-semibold text-gray-800">{exp.title}</h3>
@@ -50,7 +50,7 @@ const Experience = () => (
                             {exp.responsibilities.map((item, idx) => (
                                 <li
                                     key={idx}
-                                    className="text-gray-700 pl-4 relative before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-blue-600 before:rounded-full"
+                                    className="text-gray-700 pl-4 relative before:absolute before:left-0 before:top-2 before:w-2 before:h-2 before:bg-indigo-600 before:rounded-full"
                                 >
                                     {item}
                                 </li>
@@ -62,7 +62,5 @@ const Experience = () => (
         </div>
     </section>
 );
-
-Experience.propTypes = {};
 
 export default Experience;
