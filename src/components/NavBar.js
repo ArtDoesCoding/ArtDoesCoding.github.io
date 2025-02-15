@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import {
     UserIcon,
     AcademicCapIcon,
@@ -19,13 +19,6 @@ const navItems = [
 const NavBar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    useEffect(() => {
-        if (darkMode) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-    }, [darkMode]);
     return (
         <nav className="sticky top-0 z-50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-700 shadow-sm">
             <div className="container mx-auto px-6">
